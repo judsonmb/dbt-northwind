@@ -1,0 +1,14 @@
+version: 2
+
+sources: 
+    - name: judsonindiciumstitch
+      tables:
+        - name: orders
+        - name: customers
+          description: Essa é a tabela de clientes
+          columns: 
+            - name: id
+              description: Primary key of the orders table
+              tests:
+                - unique
+                - not_null
