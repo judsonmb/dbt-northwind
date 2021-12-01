@@ -1,0 +1,21 @@
+version: 2
+
+models: 
+    - name: fct_orders
+      description: "Nossa tabela de fatos"
+      columns:
+        - name: order_id
+          description: "A chave primária original da tabela"
+          tests:
+                - unique
+                - not_null
+
+
+    - name: dim_customers
+      description: "A started dbt model"
+      columns: 
+        - name: customer_id
+          description: "The primary key for this table"  
+          tests:
+                - unique
+                - not_null
