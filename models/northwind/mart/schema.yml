@@ -2,20 +2,28 @@ version: 2
 
 models: 
     - name: fct_orders
-      description: "Nossa tabela de fatos"
+      description: "TABELA FATO PEDIDOS"
       columns:
         - name: order_id
           description: "A chave primária original da tabela"
           tests:
-                - unique
-                - not_null
+            - unique
+            - not_null
 
 
     - name: dim_customers
-      description: "A started dbt model"
+      description: "DIMENSÃO CLIENTES (PEDIDOS POR CLIENTE)"
       columns: 
         - name: customer_id
-          description: "The primary key for this table"  
+          description: "A chave primária original da tabela"  
           tests:
-                - unique
-                - not_null
+            - unique
+            - not_null
+
+    - name: dim_products
+      description: "DIMENSÃO PRODUTOS (PEDIDOS POR PRODUTO)"
+      columns: 
+        - name: product_id
+          description: "A chave primária original da tabela"  
+          tests:
+            - not_null

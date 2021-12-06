@@ -4,15 +4,49 @@ sources:
     - name: judsonindiciumstitch
       tables:
         - name: orders
+          description: Essa é a tabela de pedidos
+          columns: 
+            - name: order_id
+              description: Chave primária da tabela de pedidos
+              tests:
+                - unique
+                - not_null
         - name: customers
           description: Essa é a tabela de clientes
           columns: 
-            - name: id
-              description: Primary key of the orders table
+            - name: customer_id
+              description: Chave primária da tabela de clientes
               tests:
                 - unique
                 - not_null
         - name: categories
+          description: Essa é a tabela de categorias dos produtos
+          columns: 
+            - name: category_id
+              description: Chave primária da tabela de categorias
+              tests:
+                - unique
+                - not_null
         - name: order_details
+          description: Essa é a tabela de detalhes dos pedidos
+          columns: 
+            - name: order_id
+              description: Chave que liga com a tabela de pedidos
+              tests:
+                - not_null
         - name: products
+          description: Essa é a tabela de de produtos
+          columns: 
+            - name: product_id
+              description: Chave primária da tabela de produtos
+              tests:
+                - unique
+                - not_null
         - name: suppliers
+          description: Essa é a tabela de de fornecedores
+          columns: 
+            - name: supplier_id
+              description: Chave primária da tabela de fornecedores
+              tests:
+                - unique
+                - not_null
