@@ -2,7 +2,7 @@
 
 
 with
-    staging as (
+    staging_customers as (
         select *
         from {{ ref('stg_customers') }}
     )
@@ -10,17 +10,17 @@ with
         select
             row_number() over (order by customer_id) as customer_sk --auto-incremental surrogate key
             , customer_id
-            , country
-            , city
-            , fax
-            , postal_code
-            , address 
-            , region
-            , contact_name
-            , phone
             , company_name
+            , contact_name
             , contact_title
-        from staging
+            , address 
+            , city
+            , region
+            , postal_code
+            , country
+            , phone
+            , fax
+        from staging_customers
     ) 
 
 select * from transformed   
